@@ -1,4 +1,4 @@
-# Create postgres database on amazon RDS and bastion host using terraform
+# Create postgres RDS insatnce on AWS and bastion host using Terraform
 
 
 ## Requirements
@@ -34,6 +34,17 @@ You need to have terraform installed on your machine
     # ssh -i "Private_key.pem" -f -N -L 5433:RDS_Instance_Endpoint:5432 ec2-user@EC2-Instance_Endpoint -v
 
     ssh -i your-pem-key.pem -f -N -L 5433:terraform-2023.aaxxZZsscc.eu-west-1.rds.amazonaws.com:5432 <ec2User>@12.345.678.999 -v
+    ```
+    you can also update connect_to_db.sh script with your output and .pem key and connect to db using this command:
+    ```shell
+    bash connect_to_db.sh
+    ```
+
+    **NOTE: when you coonnect to bastion you can connect to postgres normaly as it is in your local machine, just it will be on port 5433 on your machine.**
+    
+    Example of connecting to db:
+    ```shell
+    psql -h localhost -p 5433 -d <your-db-name>
     ```
 6. Destroy after you finish to avoid additional costs:
     ```shell
