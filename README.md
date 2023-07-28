@@ -9,7 +9,7 @@ You need to have terraform installed on your machine
 1. Declare variables or edit main.tf file based on your need
 2. Initiate terraform:
     ```shell
-        terraform init
+    terraform init
     ```
 3. Before applying check if everything is as you want using:
     ```shell
@@ -37,5 +37,5 @@ You need to have terraform installed on your machine
     ```
 6. Destroy after you finish to avoid additional costs:
     ```shell
-        terraform destroy
+    terraform destroy
     ```

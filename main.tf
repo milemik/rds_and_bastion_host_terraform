@@ -8,7 +8,7 @@ data "aws_vpc" "default" {
 }
 
 resource "aws_security_group" "bastion-sg" {
-  name   = "bastion-sg"
+  name   = var.ec2_security_group_name
   vpc_id = data.aws_vpc.default.id
 
   ingress {
@@ -27,7 +27,7 @@ resource "aws_security_group" "bastion-sg" {
 }
 
 resource "aws_security_group" "my_db_sg" {
-  name   = "db-sg"
+  name   = var.db_security_group_name
   vpc_id = data.aws_vpc.default.id
 
   ingress {
@@ -50,7 +50,7 @@ resource "aws_security_group" "my_db_sg" {
 
 resource "aws_db_instance" "my_db" {
   allocated_storage   = 5
-  db_name             = "testdb"
+  db_name             = var.db_name
   engine              = "postgres"
   engine_version      = "14.8"
   instance_class      = "db.t3.micro"
@@ -74,5 +74,5 @@ resource "aws_instance" "bastion_test" {
   vpc_security_group_ids      = [aws_security_group.bastion-sg.id]
   associate_public_ip_address = true
 
-  key_name = "bastion-key"
+  key_name = var.ec2_key_name
 }
