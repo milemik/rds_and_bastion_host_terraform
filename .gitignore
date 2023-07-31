@@ -36,4 +36,4 @@ terraform.rc
 *.pem
 
 # script for connecting to DB
-connect_to_db.sh
+con_to_db.sh
