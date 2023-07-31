@@ -46,7 +46,19 @@ You need to have terraform installed on your machine
     ```shell
     psql -h localhost -p 5433 -d <your-db-name>
     ```
-6. Destroy after you finish to avoid additional costs:
+
+6. Disconnect:
+    Find process using this command
+    ```shell
+    ps aux | grep ssh
+    ```
+
+    See process ID and you can kill process using this command:
+    ```shell
+    kill <process_id>
+    ```
+
+7. Destroy after you finish to avoid additional costs:
     ```shell
     terraform destroy
     ```
