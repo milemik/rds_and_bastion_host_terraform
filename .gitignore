@@ -34,3 +34,6 @@ override.tf.json
 terraform.rc
 
 *.pem
+
+# script for connecting to DB
+connect_to_db.sh
